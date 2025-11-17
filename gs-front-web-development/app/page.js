@@ -1,9 +1,11 @@
+
 import Header from './components/Header.js'
 import Profile from './components/Profile.js'
 import Cards from './components/Cards.js';
-import Card from './components/Card.js';
+import perfis from './utils/perfis.json';
 
 export default function Home() {
+
   return (
     <>
       <Header/>
@@ -18,9 +20,7 @@ export default function Home() {
           <div className='sticky top-0 w-full bg-white z-20'>
             <h1 className='text-4xl text-center p-5 font-bold text-gray-800'>Lista de Profissionais</h1>
           </div>
-          <Cards>
-            <Card/>          
-          </Cards>
+          <Cards perfis={perfis}/>
         </div>
       </div>
     </>
