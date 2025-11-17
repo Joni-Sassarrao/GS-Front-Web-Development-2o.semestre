@@ -1,14 +1,36 @@
+'use client';
 
+import { useState, useMemo, useEffect } from 'react';
 import Header from './components/Header.js'
 import Profile from './components/Profile.js'
 import Cards from './components/Cards.js';
 import perfis from './utils/perfis.json';
 
 export default function Home() {
+  const [perfil, setPerfil] = useState([]);
+  const [filter, setFilter] = useState('');
 
+  useEffect(() => {
+    setPerfil(perfis);
+  }, []);
+
+  const filteredPerfis = useMemo(() => {
+    console.log('filtrando perfis')
+
+    if(!filter.trim()) {
+      return perfil;
+    }
+
+    return perfil.filter(pessoa => 
+      pessoa.nome.toLowerCase().includes(filter.toLowerCase()) ||
+      pessoa.cargo.toLowerCase().includes(filter.toLowerCase())
+    )
+
+  }, [perfil, filter])
+  console.log('filtro digitado:', filter);
   return (
     <>
-      <Header/>
+      <Header value={filter} onChange={setFilter} />
       <div className='h-[80vh] m-auto w-9/12 mt-8  flex gap-5'>
         <div className='flex flex-col w-1/3'>
           <Profile/>
@@ -20,7 +42,7 @@ export default function Home() {
           <div className='sticky top-0 w-full bg-white z-20'>
             <h1 className='text-4xl text-center p-5 font-bold text-gray-800'>Lista de Profissionais</h1>
           </div>
-          <Cards perfis={perfis}/>
+          <Cards perfis={filteredPerfis}/>
         </div>
       </div>
     </>
