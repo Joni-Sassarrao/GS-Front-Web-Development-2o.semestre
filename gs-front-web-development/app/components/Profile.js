@@ -1,4 +1,6 @@
 import { IoPerson } from "react-icons/io5";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { BsBriefcaseFill } from "react-icons/bs";
 
 export default function Profile() {  
     return ( 
@@ -9,9 +11,21 @@ export default function Profile() {
                     <IoPerson className="absolute text-[5.5rem] top-3"/>
                 </div>
             </div>
-            <h1 className="text-xl font-bold pl-5 pr-4">Lorem, ipsum.</h1>
-            <p className="pr-5 pl-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem eveniet reprehenderit reiciendis labore illum quos!</p>
-            <p className="font-semibold pl-5 pr-4">Lorem</p>
+            <div className="flex flex-col gap-1">
+                <h1 className="text-xl font-bold pl-5 pr-4">João Pedro Sassarrão</h1>
+                <p className="pr-5 pl-5">Profissional altamente qualificado com experiência na área.</p>
+                <p className="font-semibold pl-5 pr-4">Fiap</p>
+                <div className="w-full flex flex-col p-5 pt-0">
+                    <div className="flex items-center gap-2">
+                        <FaMapMarkerAlt className="text-red-600"/>
+                        <p className="text-lg font-semibold text-gray-600">São Paulo/SP</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <BsBriefcaseFill className="text-gray-800"/>
+                        <p className="text-lg font-semibold text-gray-600">Engenheiro de Software</p>
+                    </div>
+                </div>
+            </div>
         </div>
         </>
     );

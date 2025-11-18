@@ -1,14 +1,11 @@
-import Link from "next/link";
 import Card from "./Card";
 
 export default function Cards({ perfis }) {
     return ( 
         <>
-        <div className='relative grid grid-cols-3 mt-4 z-10'>
+        <div className='relative grid grid-cols-3 mt-4 z-10 max-2xl:grid-cols-2 [@media(max-width:1036px)]:grid-cols-1'>
             {perfis.map((pessoa) => (
-                <Link key={pessoa.id} href={`/dataprofile/${pessoa.id}`}>
-                    <Card pessoa={pessoa} />
-                </Link>
+                <Card key={pessoa.id} pessoa={pessoa} />
             ))}
         </div>
         </>
