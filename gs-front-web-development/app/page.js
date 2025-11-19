@@ -62,7 +62,7 @@ export default function Home() {
             <h1 className="text-2xl max-lg:text-lg font-bold">Profissionais recomendados: {recomendar.length}</h1>
           </div>
         </div> 
-        <div className='w-full h-full overflow-y-scroll bg-white rounded-xl shadow-[2px_2px_10px_rgba(0,0,0,0.1)] [@media(max-width:1055px)]:w-3/4'>
+        <div className='w-full h-full overflow-y-scroll rounded-xl shadow-[2px_2px_10px_rgba(0,0,0,0.1)] [@media(max-width:1055px)]:w-3/4' style={{background: 'var(--backgroundHeader)'}}>
           <div className='sticky top-0 w-full bg-white z-20' style={{background: 'var(--backgroundHeader)'}}>
             <h1 className='text-4xl text-center p-5 font-bold text-gray-800' style={{color: 'var(--textColor)'}}>Lista de Profissionais</h1>
           </div>
