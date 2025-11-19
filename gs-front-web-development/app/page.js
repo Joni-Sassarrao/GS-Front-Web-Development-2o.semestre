@@ -55,14 +55,14 @@ export default function Home() {
   return (
     <>
       <Header value={filter} onChange={setFilter} setDarkMode={setDarkMode}/>
-      <div className='h-[80vh] m-auto w-9/12 mt-8  flex gap-5'>
+      <div className='h-[80vh] m-auto w-9/12 mt-8 flex gap-5 max-[1161px]:w-11/12'>
         <div className='flex flex-col w-1/3'>
           <Profile/>
-          <div className='h-30 mt-5 flex items-center pl-5 bg-white shadow-[2px_2px_10px_rgba(0,0,0,0.3)] rounded-2xl' style={{background: 'var(--backgroundHeader)'}}>
-            <h1 className='text-2xl font-bold'>Profissionais recomendados: {recomendar.length}</h1>
+          <div className='mt-5 flex items-center bg-white shadow-[2px_2px_10px_rgba(0,0,0,0.3)] rounded-2xl h-auto p-4 max-lg:h-24 max-lg:p-5' style={{background: 'var(--backgroundHeader)'}}>
+            <h1 className="text-2xl max-lg:text-lg font-bold">Profissionais recomendados: {recomendar.length}</h1>
           </div>
         </div> 
-        <div className='w-full h-full overflow-y-scroll bg-white rounded-xl shadow-[2px_2px_10px_rgba(0,0,0,0.1)]'>
+        <div className='w-full h-full overflow-y-scroll bg-white rounded-xl shadow-[2px_2px_10px_rgba(0,0,0,0.1)] [@media(max-width:1055px)]:w-3/4'>
           <div className='sticky top-0 w-full bg-white z-20' style={{background: 'var(--backgroundHeader)'}}>
             <h1 className='text-4xl text-center p-5 font-bold text-gray-800' style={{color: 'var(--textColor)'}}>Lista de Profissionais</h1>
           </div>

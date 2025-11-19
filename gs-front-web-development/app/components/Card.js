@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Card({ pessoa }) {
     return ( 
         <>
-        <div className='rounded-3xl shadow-[0_10px_10px_rgba(0,0,0,0.25)] m-5' style={{background: 'var(--background)'}}>
+        <div className='rounded-3xl shadow-[0_10px_10px_rgba(0,0,0,0.25)] m-5 max-[1056px]:w-2/3' style={{background: 'var(--background)'}}>
             <div className='flex justify-center items-end w-full h-28 bg-[#6D32F8] mb-5 rounded-t-3xl'>
                 {pessoa.foto && (
                     <img src={pessoa.foto} alt={pessoa.nome} className='w-20 h-20 translate-y-8 rounded-full border-1 border-gray-600 shadow-[0_5px_10px_rgba(0,0,0,0.4)] object-cover'></img>
