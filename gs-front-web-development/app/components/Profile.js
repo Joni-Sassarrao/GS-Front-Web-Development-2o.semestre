@@ -5,10 +5,10 @@ import { BsBriefcaseFill } from "react-icons/bs";
 export default function Profile() {  
     return ( 
         <>
-        <div className='rounded-2xl h-1/2 bg-white shadow-[2px_2px_10px_rgba(0,0,0,0.3)]'>
+        <div className='rounded-2xl h-1/2 bg-white shadow-[2px_2px_10px_rgba(0,0,0,0.3)]' style={{background: 'var(--backgroundHeader)'}}>
             <div className='h-1/4 mb-20 pl-5 pr-4 bg-[#83c1f5] rounded-t-2xl'>
                 <div className='relative w-24 h-24 border-1 border-gray-300 bg-[#ededed] rounded-full flex justify-center items-end overflow-hidden top-12'>
-                    <IoPerson className="absolute text-[5.5rem] top-3"/>
+                    <IoPerson className="absolute text-[5.5rem] top-3" style={{color: 'var(--ioPerson)'}}/>
                 </div>
             </div>
             <div className="flex flex-col gap-1">
@@ -18,11 +18,11 @@ export default function Profile() {
                 <div className="w-full flex flex-col p-5 pt-0">
                     <div className="flex items-center gap-2">
                         <FaMapMarkerAlt className="text-red-600"/>
-                        <p className="text-lg font-semibold text-gray-600">São Paulo/SP</p>
+                        <p className="text-lg font-semibold text-gray-600" style={{color: 'var(--textColor)'}}>São Paulo/SP</p>
                     </div>
                     <div className="flex items-center gap-2">
-                        <BsBriefcaseFill className="text-gray-800"/>
-                        <p className="text-lg font-semibold text-gray-600">Engenheiro de Software</p>
+                        <BsBriefcaseFill className="text-gray-800" style={{color: 'var(--textColor)'}}/>
+                        <p className="text-lg font-semibold text-gray-600" style={{color: 'var(--textColor)'}}>Engenheiro de Software</p>
                     </div>
                 </div>
             </div>

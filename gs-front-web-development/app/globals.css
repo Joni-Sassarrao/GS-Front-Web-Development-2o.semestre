@@ -3,10 +3,21 @@
 
 :root {
   --background: #ededed;
+  --backgroundHeader: #fff;
+  --textColor: #000;
+  --ioPerson: #000;
+}
+
+.dark {
+  --background: #1E1C38;
+  --backgroundHeader: #4C4B7D;
+  --textColor: #F1F1F1;
+  --ioPerson: #000;
 }
 
 body {
   background: var(--background);
+  color: var(--textColor);
 }
 
 h1 {

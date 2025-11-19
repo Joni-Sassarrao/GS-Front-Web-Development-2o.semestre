@@ -14,8 +14,8 @@ export default function SearchBar({ value, onChange }) {
 
     return (  
         <>
-        <div className="relative flex items-center w-1/4 m-auto">
-            <IoIosSearch className="absolute ml-3 text-gray-500 text-xl"/>
+        <div className="relative flex items-center w-1/4 m-auto rounded-lg" style={{background: "var(--background)"}}>
+            <IoIosSearch className="absolute ml-3 text-gray-500 text-xl" style={{color: "var(--textColor)"}}/>
             <input
                 ref={inputRef}
                 type="text"
@@ -23,6 +23,7 @@ export default function SearchBar({ value, onChange }) {
                 onChange={(e) => onChange(e.target.value)}
                 placeholder="Pesquisar"
                 className="border border-gray-300 rounded-lg w-full py-2 pl-10 text-gray-900"
+                style={{color: "var(--textColor)"}}
             />
         </div>
         </>

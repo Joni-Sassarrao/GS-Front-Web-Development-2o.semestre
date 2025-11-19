@@ -55,24 +55,24 @@ export default function personInfo({ params }) {
         <div className='w-[90%] m-auto mt-10'>
             <button onClick={() => router.back()} className='text-2xl mb-6 font-bold cursor-pointer'>Voltar</button>
 
-            <div className="max-w-3xl mx-auto bg-white shadow-xl rounded-2xl p-10 mt-10">
+            <div className="max-w-3xl mx-auto bg-white shadow-xl rounded-2xl p-10 mt-10" style={{background: 'var(--backgroundHeader)'}}>
                 <div className="flex flex-col items-center text-center">
                     <div className="w-40 h-40 rounded-full overflow-hidden shadow-md mb-6">
                         <img src={pessoa.foto} className="w-full h-full object-cover" />
                     </div>
 
                     <h1 className="text-3xl font-bold">{pessoa.nome}</h1>
-                    <p className="text-gray-800 font-semibold text-lg">{pessoa.cargo}</p>
-                    <p className="text-gray-700 mt-2">{pessoa.resumo}</p>
-                    <p className="text-gray-700 mt-1">{pessoa.localizacao}</p>
-                    <p className="mt-2 px-4 py-1 text-gray-700">Área em que atua: <strong>{pessoa.area}</strong></p>
+                    <p className="text-gray-800 font-semibold text-lg" style={{color: 'var(--textColor)'}}>{pessoa.cargo}</p>
+                    <p className="text-gray-700 mt-2" style={{color: 'var(--textColor)'}}>{pessoa.resumo}</p>
+                    <p className="text-gray-700 mt-1" style={{color: 'var(--textColor)'}}>{pessoa.localizacao}</p>
+                    <p className="mt-2 px-4 py-1 text-gray-700" style={{color: 'var(--textColor)'}}>Área em que atua: <strong>{pessoa.area}</strong></p>
                 </div>
 
                 <div className="mt-10">
                     <h2 className="text-xl font-semibold mb-3">Habilidades Técnicas</h2>
                     <div className="flex flex-wrap gap-2">
                     {pessoa.habilidadesTecnicas.map((skill, i) => (
-                        <span key={i} className="px-3 py-1 text-sm text-gray-700">
+                        <span key={i} className="px-3 py-1 text-sm text-gray-700" style={{color: 'var(--textColor)'}}>
                             {skill}
                         </span>
                     ))}
@@ -81,7 +81,7 @@ export default function personInfo({ params }) {
                     <h2 className="text-xl font-semibold mt-6 mb-3">Soft Skills</h2>
                     <div className="flex flex-wrap gap-2">
                     {pessoa.softSkills.map((skill, i) => (
-                        <span key={i} className="px-3 py-1 text-sm text-gray-700">
+                        <span key={i} className="px-3 py-1 text-sm text-gray-700" style={{color: 'var(--textColor)'}}>
                         {skill}
                         </span>
                     ))}
@@ -91,11 +91,11 @@ export default function personInfo({ params }) {
                 <div className="mt-10">
                     <h2 className="text-xl font-semibold mb-4">Experiências</h2>
                     {pessoa.experiencias.map((exp, i) => (
-                    <div key={i} className="bg-gray-50 border rounded-md p-4 mb-4">
+                    <div key={i} className="bg-gray-50 border rounded-md p-4 mb-4" style={{background: 'var(--background)'}}>
                         <p className="font-semibold text-lg">{exp.empresa}</p>
-                        <p className="text-gray-700">{exp.cargo}</p>
-                        <p className="text-sm text-gray-700">{exp.inicio} até {exp.fim}</p>
-                        <p className="text-gray-700 mt-2">{exp.descricao}</p>
+                        <p className="text-gray-700" style={{color: 'var(--textColor)'}}>{exp.cargo}</p>
+                        <p className="text-sm text-gray-700" style={{color: 'var(--textColor)'}}>{exp.inicio} até {exp.fim}</p>
+                        <p className="text-gray-700 mt-2" style={{color: 'var(--textColor)'}}>{exp.descricao}</p>
                     </div>
                     ))}
                 </div>
@@ -103,10 +103,10 @@ export default function personInfo({ params }) {
                 <div className="mt-10">
                     <h2 className="text-xl font-semibold mb-4">Formação</h2>
                     {pessoa.formacao.map((form, i) => (
-                    <div key={i} className="bg-gray-50 border rounded-md p-4 mb-4">
+                    <div key={i} className="bg-gray-50 border rounded-md p-4 mb-4" style={{background: 'var(--background)'}}>
                         <p className="font-semibold">{form.curso}</p>
-                        <p className="text-gray-700">{form.instituicao}</p>
-                        <p className="text-sm text-gray-700">{form.ano}</p>
+                        <p className="text-gray-700" style={{color: 'var(--textColor)'}}>{form.instituicao}</p>
+                        <p className="text-sm text-gray-700" style={{color: 'var(--textColor)'}}>{form.ano}</p>
                     </div>
                     ))}
                 </div>
@@ -114,9 +114,9 @@ export default function personInfo({ params }) {
                 <div className="mt-10">
                     <h2 className="text-xl font-semibold mb-4">Projetos</h2>
                     {pessoa.projetos.map((proj, i) => (
-                    <div key={i} className="bg-gray-50 border rounded-md p-4 mb-4">
+                    <div key={i} className="bg-gray-50 border rounded-md p-4 mb-4" style={{background: 'var(--background)'}}>
                         <p className="font-semibold text-lg">{proj.titulo}</p>
-                        <p className="text-gray-700">{proj.link}</p>
+                        <p className="text-gray-700" style={{color: 'var(--textColor)'}}>{proj.link}</p>
                         <p className="mt-2">{proj.descricao}</p>
                     </div>
                     ))}
@@ -132,9 +132,9 @@ export default function personInfo({ params }) {
                 <div className="mt-10">
                     <h2 className="text-xl font-semibold mb-4">Idiomas</h2>
                     {pessoa.idiomas.map((idio, i) => (
-                    <div key={i} className="bg-gray-50 border rounded-md p-4 mb-3">
+                    <div key={i} className="bg-gray-50 border rounded-md p-4 mb-3" style={{background: 'var(--background)'}}>
                         <p className="font-semibold">{idio.idioma}</p>
-                        <p className="text-gray-700">{idio.nivel}</p>
+                        <p className="text-gray-700" style={{color: 'var(--textColor)'}}>{idio.nivel}</p>
                     </div>
                     ))}
                 </div>
