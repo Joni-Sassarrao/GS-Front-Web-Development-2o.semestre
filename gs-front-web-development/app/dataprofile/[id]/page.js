@@ -2,6 +2,7 @@
 
 import { use } from "react";
 import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import perfis from '../../utils/perfis.json';
 
@@ -9,6 +10,12 @@ export default function personInfo({ params }) {
     const {id} = use(params);
     const router = useRouter();
     const pessoa = perfis.find((p) => String(p.id) === id);
+    const [recomendado, setRecomendado] = useState(false);
+
+    useEffect(() => {
+        const salvados = JSON.parse(localStorage.getItem('recomendarProfissional')) || [];
+        setRecomendado(salvados.includes(pessoa.id))
+    }, [pessoa.id])
 
     if(!pessoa) {
         return (
@@ -19,6 +26,28 @@ export default function personInfo({ params }) {
                 </div>
             </div>
         )
+    }
+
+    function recomendarProfissional() {
+        const recomendar = JSON.parse(localStorage.getItem('recomendarProfissional')) || [];
+        localStorage.setItem('recomendarProfissional', JSON.stringify([id]))
+
+        if(!recomendar.some(r => r.id === pessoa.id)) {
+            recomendar.push(pessoa)
+            localStorage.setItem('recomendarProfissional', JSON.stringify(recomendar))
+        }
+
+        const salvados = JSON.parse(localStorage.getItem('recomendados')) || [];
+
+        if (salvados.includes(pessoa.id)) {
+            const novo = salvados.filter(id => id !== pessoa.id);
+            localStorage.setItem('recomendados', JSON.stringify(novo));
+            setRecomendado(false);
+        } else {
+            salvados.push(pessoa.id);
+            localStorage.setItem('recomendados', JSON.stringify(salvados));
+            setRecomendado(true);
+        }
     }
 
     return (  
@@ -119,7 +148,12 @@ export default function personInfo({ params }) {
                     </div>
                 </div>
                 <div className="flex justify-between">
-                    <button className="p-3 bg-purple-400 text-white text-lg font-bold border-1 border-purple-400 rounded-xl hover:bg-purple-200 hover:text-purple-400 transition cursor-pointer">Recomendar Profissional</button>
+                    <button onClick={recomendarProfissional} className={`p-3 text-lg font-bold rounded-xl transition cursor-pointer
+                        ${recomendado 
+                            ? "bg-green-200 text-green-500 border-1 border-green-500" 
+                            : "bg-purple-400 text-white border-1 border-purple-400 hover:bg-purple-200 hover:text-purple-500"
+                        }`}>
+                    {recomendado ? "Profissional Recomendado" : "Recomendar Profissional"}</button>
                     <button className="p-3 bg-purple-400 text-white text-lg font-bold border-1 border-purple-400 rounded-xl hover:bg-purple-200 hover:text-purple-400 transition cursor-pointer">Enviar Mensagem</button>
                 </div>
             </div>

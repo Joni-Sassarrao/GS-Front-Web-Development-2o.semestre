@@ -9,9 +9,13 @@ import perfis from './utils/perfis.json';
 export default function Home() {
   const [perfil, setPerfil] = useState([]);
   const [filter, setFilter] = useState('');
+  const [recomendar, setRecomendar] = useState([]);
 
   useEffect(() => {
     setPerfil(perfis);
+
+    const salvarProfissional = JSON.parse(localStorage.getItem('recomendarProfissional')) || [];
+    setRecomendar(salvarProfissional);
   }, []);
 
   const filteredPerfis = useMemo(() => {
@@ -35,7 +39,7 @@ export default function Home() {
         <div className='flex flex-col w-1/3'>
           <Profile/>
           <div className='h-30 mt-5 flex items-center pl-5 bg-white shadow-[2px_2px_10px_rgba(0,0,0,0.3)] rounded-2xl'>
-            <h1 className='text-2xl font-bold'>Profissionais recomendados: </h1>
+            <h1 className='text-2xl font-bold'>Profissionais recomendados: {recomendar.length}</h1>
           </div>
         </div> 
         <div className='w-full h-full overflow-y-scroll bg-white rounded-xl shadow-[2px_2px_10px_rgba(0,0,0,0.1)]'>
